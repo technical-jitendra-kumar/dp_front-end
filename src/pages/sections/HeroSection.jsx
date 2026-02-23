@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
+import img1 from "../../assets/hore1.png";
+import img2 from "../../assets/hore2.png";
 
 const floatCards = [
-  { icon: "📊", title: "Data Analytics",  sub: "3 months · Live",    border: "#C7D7FF", anim: "floatA 4s ease-in-out infinite" },
-  { icon: "🤖", title: "Agentic AI",      sub: "New Batch ⚡",        border: "#DDD6FE", anim: "floatB 5s ease-in-out infinite .5s" },
-  { icon: "💹", title: "Inv. Banking",    sub: "6 months · Live",    border: "#FCA5A5", anim: "floatA 6s ease-in-out infinite 1s" },
-  { icon: "🧠", title: "Data Science",    sub: "🔥 Most Popular",    border: "#6EE7B7", anim: "floatB 4.5s ease-in-out infinite 1.5s" },
+  { icon: "📊", title: "Data Analytics", sub: "3 months · Live", border: "#C7D7FF", anim: "floatA 4s ease-in-out infinite" },
+  { icon: "🤖", title: "Agentic AI", sub: "New Batch ⚡", border: "#DDD6FE", anim: "floatB 5s ease-in-out infinite .5s" },
+  { icon: "💹", title: "Inv. Banking", sub: "6 months · Live", border: "#FCA5A5", anim: "floatA 6s ease-in-out infinite 1s" },
+  { icon: "🧠", title: "Data Science", sub: "🔥 Most Popular", border: "#6EE7B7", anim: "floatB 4.5s ease-in-out infinite 1.5s" },
 ];
 
 const stats = [
   { num: "2,400+", label: "Alumni Placed" },
-  { num: "94%",    label: "Placement Rate" },
-  { num: "180+",   label: "Hiring Partners" },
-  { num: "4.9★",   label: "Average Rating" },
+  { num: "94%", label: "Placement Rate" },
+  { num: "180+", label: "Hiring Partners" },
+  { num: "4.9★", label: "Average Rating" },
 ];
 
 export default function HeroSection() {
@@ -39,14 +41,14 @@ export default function HeroSection() {
 
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", animation: "fadeUp .6s ease .3s both" }}>
           <button style={{ padding: ".9rem 2.2rem", borderRadius: 10, border: "none", background: "#0057FF", color: "#fff", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "1rem", fontWeight: 700, cursor: "pointer", boxShadow: "0 4px 20px rgba(0,87,255,.35)", transition: "all .2s" }}
-            onMouseEnter={e => { e.currentTarget.style.background="#0047DD"; e.currentTarget.style.transform="translateY(-2px)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background="#0057FF"; e.currentTarget.style.transform="none"; }}>
+            onMouseEnter={e => { e.currentTarget.style.background = "#0047DD"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#0057FF"; e.currentTarget.style.transform = "none"; }}>
             Book Free Counselling
           </button>
           <Link to="#programs" onClick={e => { e.preventDefault(); document.getElementById("programs")?.scrollIntoView({ behavior: "smooth" }); }} style={{ textDecoration: "none" }}>
             <button style={{ padding: ".9rem 2.2rem", borderRadius: 10, border: "1.5px solid #CBD5E1", background: "rgba(255,255,255,.8)", color: "#0F172A", fontSize: "1rem", fontWeight: 600, cursor: "pointer", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", transition: "all .2s" }}
-              onMouseEnter={e => e.currentTarget.style.borderColor="#0057FF"}
-              onMouseLeave={e => e.currentTarget.style.borderColor="#CBD5E1"}>
+              onMouseEnter={e => e.currentTarget.style.borderColor = "#0057FF"}
+              onMouseLeave={e => e.currentTarget.style.borderColor = "#CBD5E1"}>
               Explore Programs ↓
             </button>
           </Link>
@@ -54,7 +56,7 @@ export default function HeroSection() {
 
         {/* Pills */}
         <div style={{ display: "flex", gap: ".6rem", flexWrap: "wrap", marginTop: "2rem", animation: "fadeUp .6s ease .4s both" }}>
-          {["🎓 Live Classes","✅ 100% Placement Support","🏅 Dual Certificate","📞 24/7 Mentor Access"].map(p => (
+          {["🎓 Live Classes", "✅ 100% Placement Support", "🏅 Dual Certificate", "📞 24/7 Mentor Access"].map(p => (
             <span key={p} style={{ padding: ".4rem .9rem", borderRadius: 100, background: "rgba(255,255,255,.85)", border: "1px solid #E2E8F0", fontSize: "0.8rem", fontWeight: 500, color: "#475569", boxShadow: "0 1px 4px rgba(0,0,0,.06)", backdropFilter: "blur(6px)" }}>{p}</span>
           ))}
         </div>
@@ -70,18 +72,86 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Floating cards */}
-      <div className="dp-hero-cards" style={{ position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", animation: "fadeUp .7s ease .5s both", zIndex: 1 }}>
-        {floatCards.map(card => (
-          <div key={card.title} style={{ background: "rgba(255,255,255,.85)", border: `1.5px solid ${card.border}`, borderRadius: 16, padding: "1.4rem", boxShadow: "0 8px 32px rgba(0,0,0,.08)", width: 170, backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", animation: card.anim }}>
-            <div style={{ fontSize: "1.6rem", marginBottom: ".5rem" }}>{card.icon}</div>
-            <div style={{ fontWeight: 700, fontSize: "0.8rem", color: "#0F172A" }}>{card.title}</div>
-            <div style={{ fontSize: "0.7rem", color: "#94A3B8", marginTop: ".2rem" }}>{card.sub}</div>
-          </div>
-        ))}
-      </div>
+      {/* Hero Images */}
+      <div
+        className="hero-image-container"
+        style={{
+          position: "absolute",
+          right: "5%",
+          top: "42%",   // 👈 pehle 50% tha, ab thoda upar
+          transform: "translateY(-50%)",
+          width: "520px",
+          maxWidth: "48vw",
+          zIndex: 1,
+          animation: "fadeUp .7s ease .5s both"
+        }}
+      >
+        <div className="hero-image-wrapper">
 
-      <style>{`@media (max-width: 900px) { .dp-hero-cards { display: none !important; } }`}</style>
+          {/* Main Image */}
+          <img
+            src={img1}
+            alt="Main"
+            className="hero-main-img"
+          />
+
+          {/* Secondary Image */}
+          <img
+            src={img2}
+            alt="Secondary"
+            className="hero-second-img"
+          />
+
+        </div>
+      </div>
+      <style>{`
+
+.hero-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+/* MAIN IMAGE */
+.hero-main-img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.18);
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+/* SECOND IMAGE (layered effect) */
+.hero-second-img {
+  position: absolute;
+  width: 70%;
+  bottom: -40px;
+  left: -60px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.15);
+  animation: floatImage2 7s ease-in-out infinite;
+}
+
+/* Floating Animations */
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatImage2 {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-image-container {
+    display: none;
+  }
+}
+
+`}</style>
     </section>
   );
 }
