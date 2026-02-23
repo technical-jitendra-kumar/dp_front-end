@@ -88,3 +88,129 @@ button, a { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* Program page global styles */
 .program-section { scroll-margin-top: 80px; }
+
+/* hero section animation  */
+
+.hero-visual {
+  position: absolute;
+  right: 5%;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background: radial-gradient(circle at center,
+              rgba(15,23,42,0.15) 0%,
+              transparent 60%);
+}
+
+/* Center Girl */
+.hero-center {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.hero-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Orbit Base */
+/* ORBIT BASE */
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: rotateOrbit linear infinite;
+  border: 1px dashed rgba(0,87,255,0.3);   /* visible ring */
+}
+
+/* TECH BADGES */
+.orbit span {
+  position: absolute;
+  padding: .55rem 1.1rem;
+  border-radius: 100px;
+  font-size: .75rem;
+  font-weight: 600;
+
+  background: linear-gradient(135deg,#0057FF,#7C3AED);
+  color: #ffffff;
+
+  box-shadow:
+    0 0 15px rgba(124,58,237,.6),
+    0 0 25px rgba(0,87,255,.4);
+
+  border: 1px solid rgba(255,255,255,.25);
+
+  backdrop-filter: blur(8px);
+  transition: all .4s ease;
+}
+
+/* Hover effect */
+.orbit span:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 25px rgba(124,58,237,.9),
+    0 0 40px rgba(0,87,255,.7);
+}
+
+/* First Ring */
+.orbit1 {
+  animation-duration: 20s;
+}
+
+.orbit1 span:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.orbit1 span:nth-child(2) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+.orbit1 span:nth-child(3) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.orbit1 span:nth-child(4) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
+
+/* Second Ring */
+.orbit2 {
+  width: 120%;
+  height: 120%;
+  animation-duration: 35s;
+}
+
+.orbit2 span:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.orbit2 span:nth-child(2) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+.orbit2 span:nth-child(3) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.orbit2 span:nth-child(4) { top: 50%; left: 0%; transform: translate(-50%, -50%); }
+
+/* Rotation */
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Wave Effect */
+.waves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: .6; }
+  50% { transform: scale(1.1); opacity: .3; }
+  100% { transform: scale(1); opacity: .6; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-visual {
+    display: none;
+  }
+}
