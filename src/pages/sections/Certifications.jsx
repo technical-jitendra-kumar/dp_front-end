@@ -150,7 +150,7 @@ const styles = {
   section: {
     paddingTop: '80px',
     paddingBottom: '80px',
-    backgroundColor: '#F5F3F0',
+    backgroundColor: '#EDF3FF',
     overflow: 'hidden',
   },
 
