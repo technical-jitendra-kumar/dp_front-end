@@ -7,14 +7,14 @@ import TickerSection from "./sections/TickerSection";
 // import CoursesSection from "./sections/CoursesSection";
 import WhySection from "./sections/WhySection";
 import ProcessSection from "./sections/ProcessSection";
-import TestimonialsSection from "./sections/TestimonialsSection";
+// import TestimonialsSection from "./sections/TestimonialsSection";
 import CTASection from "./sections/CTASection";
 import CTAlight from "./sections/CTAlight";
 import Program from "./sections/ProgramsSection";
 import Mentor from "./sections/MentorsSection";
 import SuccessStories from "./sections/SuccessStories";
 import  FAQSection  from './sections/FAQSection-DarkTheme';
-import JourneyTimeline from "./program-sections/JourneyTimeline";
+import Certifications  from "./sections/Certifications";
 
 export default function HomePage() {
   return (
@@ -30,10 +30,11 @@ export default function HomePage() {
         <SuccessStories />
         <HiringPartners />
         <ProcessSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
+        <Certifications />
         <FAQSection />
         <CTAlight />
-        <CTASection />
+        {/* <CTASection /> */}
       </main>
       <Footer />
       <FloatingCTA />
