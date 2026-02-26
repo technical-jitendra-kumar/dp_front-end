@@ -195,7 +195,7 @@ const styles = {
   section: {
     paddingTop: "60px",
     paddingBottom: "60px",
-    backgroundColor: "#0F1729",
+    backgroundColor: "#f0f4f8",
     overflow: "hidden",
   },
 
@@ -224,7 +224,7 @@ const styles = {
   heading: {
     fontSize: "42px",
     fontWeight: "900",
-    color: "white",
+    color: "#0A0E27",
     marginBottom: "0",
     lineHeight: "1.3",
     letterSpacing: "-0.5px",
@@ -276,7 +276,7 @@ const styles = {
     top: 0,
     bottom: 0,
     width: "80px",
-    background: "linear-gradient(to right, #0F1729, transparent)",
+    background: "linear-gradient(to right, #f0f4f8, transparent)",
     pointerEvents: "none",
     zIndex: 10,
   },
@@ -287,7 +287,7 @@ const styles = {
     top: 0,
     bottom: 0,
     width: "80px",
-    background: "linear-gradient(to left, #0F1729, transparent)",
+    background: "linear-gradient(to left, #f0f4f8, transparent)",
     pointerEvents: "none",
     zIndex: 10,
   },
@@ -404,4 +404,4 @@ const styles = {
     transition: "all 0.3s ease",
     marginTop: "4px",
   },
-};
+}; 

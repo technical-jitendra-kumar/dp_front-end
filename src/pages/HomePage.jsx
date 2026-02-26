@@ -9,9 +9,12 @@ import WhySection from "./sections/WhySection";
 import ProcessSection from "./sections/ProcessSection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import CTASection from "./sections/CTASection";
+import CTAlight from "./sections/CTAlight";
 import Program from "./sections/ProgramsSection";
 import Mentor from "./sections/MentorsSection";
 import SuccessStories from "./sections/SuccessStories";
+import  FAQSection  from './sections/FAQSection-DarkTheme';
+import JourneyTimeline from "./program-sections/JourneyTimeline";
 
 export default function HomePage() {
   return (
@@ -28,6 +31,8 @@ export default function HomePage() {
         <HiringPartners />
         <ProcessSection />
         <TestimonialsSection />
+        <FAQSection />
+        <CTAlight />
         <CTASection />
       </main>
       <Footer />
