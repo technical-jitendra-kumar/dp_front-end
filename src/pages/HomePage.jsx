@@ -27,11 +27,12 @@ export default function HomePage() {
         <Program />
         <Mentor />
         {/* <CoursesSection /> */}
-        <SuccessStories />
         <HiringPartners />
+        <SuccessStories />
+        <Certifications />
         <ProcessSection />
         {/* <TestimonialsSection /> */}
-        <Certifications />
+        
         <FAQSection />
         <CTAlight />
         {/* <CTASection /> */}
