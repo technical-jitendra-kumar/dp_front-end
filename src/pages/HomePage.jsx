@@ -31,8 +31,6 @@ export default function HomePage() {
         <SuccessStories />
         <Certifications />
         <ProcessSection />
-        {/* <TestimonialsSection /> */}
-        
         <FAQSection />
         <CTAlight />
         {/* <CTASection /> */}

@@ -142,7 +142,7 @@ export default function FAQSection() {
                 className="faq-item"
               >
                 <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                   style={{
                     ...styles.faqButton,
                     borderColor: openIndex === index ? '#0052CC' : '#ffffff1a',

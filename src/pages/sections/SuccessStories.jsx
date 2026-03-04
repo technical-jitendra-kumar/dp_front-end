@@ -295,7 +295,7 @@ const styles = {
   },
 
   storyCard: {
-    flex: "0 0 360px",
+    flex: "0 0 280px",
     backgroundColor: "#1A2A4A",
     borderRadius: "20px",
     overflow: "hidden",
@@ -307,7 +307,7 @@ const styles = {
   imageWrapper: {
     position: "relative",
     width: "100%",
-    height: "300px",
+    height: "200px",
   },
 
   storyImage: {
@@ -349,19 +349,19 @@ const styles = {
   },
 
   infoSection: {
-    padding: "24px",
+    padding: "16px",
     backgroundColor: "#0F1729",
   },
 
   name: {
-    fontSize: "20px",
+    fontSize: "16px",
     fontWeight: "700",
     color: "white",
     margin: "0 0 4px 0",
   },
 
   role: {
-    fontSize: "14px",
+    fontSize: "12px",
     color: "#9CA3AF",
     margin: "0 0 16px 0",
   },
@@ -370,10 +370,10 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "12px",
-    marginBottom: "16px",
     backgroundColor: "#1A2A4A",
-    padding: "12px",
     borderRadius: "12px",
+    padding: "8px",          
+    marginBottom: "12px"
   },
 
   lpaBox: {
@@ -410,7 +410,7 @@ const styles = {
   },
 
   testimonial: {
-    fontSize: "14px",
+    fontSize: "12px",
     color: "#D1D5DB",
     margin: "0",
     lineHeight: "1.6",
@@ -418,7 +418,7 @@ const styles = {
   },
 
   quoteIcon: {
-    fontSize: "24px",
+    fontSize: "18px",
     color: "#0052CC",
     marginRight: "4px",
   },

@@ -1,5 +1,27 @@
 import { useState } from "react";
 import { ArrowRight, Zap } from "lucide-react";
+import { 
+  FaPython, 
+  FaDatabase, 
+  FaChartLine, 
+  FaChartBar, 
+  FaRobot, 
+  FaFire, 
+  FaSearch, 
+  FaHdd, 
+  FaLink,
+  FaBrain 
+} from 'react-icons/fa';
+import { 
+  SiTensorflow, 
+  SiDocker, 
+  SiOpenai 
+} from 'react-icons/si';
+import { 
+  FiSettings, 
+  FiCloud 
+} from 'react-icons/fi';
+import { BsLightning } from 'react-icons/bs';
 
 const programsData = [
   {
@@ -10,11 +32,11 @@ const programsData = [
     description:
       "Master Excel, SQL, Python, Tableau, and Power BI by solving real business problems. Walk out with a portfolio that proves you can deliver insights, not just run queries.",
     tools: [
-      { name: "Python", icon: "🐍" },
-      { name: "SQL", icon: "📊" },
-      { name: "Tableau", icon: "📈" },
-      { name: "Power BI", icon: "📉" },
-      { name: "Excel", icon: "🟢" },
+      { name: "Python", icon: <FaPython /> },
+      { name: "SQL", icon: <FaDatabase /> },
+      { name: "Tableau", icon: <FaChartLine /> },
+      { name: "Power BI", icon: <FaChartBar /> },
+      { name: "Excel", icon: <FiSettings /> },
     ],
     level: "Beginner to Advanced",
     popular: true,
@@ -27,9 +49,9 @@ const programsData = [
     description:
       "Learn data-driven decision making, KPI frameworks, and business strategy with analytics.",
     tools: [
-      { name: "Excel", icon: "🟢" },
-      { name: "Power BI", icon: "📉" },
-      { name: "SQL", icon: "📊" },
+      { name: "Excel", icon: <FiSettings /> },
+      { name: "Power BI", icon: <FaChartBar /> },
+      { name: "SQL", icon: <FaDatabase /> },
     ],
     level: "Beginner to Advanced",
     popular: false,
@@ -42,11 +64,11 @@ const programsData = [
     description:
       "The complete journey — from Python fundamentals to neural networks, NLP, generative AI, and deployment.",
     tools: [
-      { name: "TensorFlow", icon: "⚡" },
-      { name: "PyTorch", icon: "🔥" },
-      { name: "Docker", icon: "🐳" },
-      { name: "AWS", icon: "☁️" },
-      { name: "BERT", icon: "🧠" },
+      { name: "TensorFlow", icon: <SiTensorflow /> },
+      { name: "PyTorch", icon: <FaFire /> },
+      { name: "Docker", icon: <SiDocker /> },
+      { name: "AWS", icon: <FiCloud /> },
+      { name: "BERT", icon: <FaBrain /> },
     ],
     level: "Beginner to Advanced",
     popular: false,
@@ -59,10 +81,10 @@ const programsData = [
     description:
       "Build AI agents, automation workflows, and advanced prompting systems.",
     tools: [
-      { name: "OpenAI", icon: "🤖" },
-      { name: "LangChain", icon: "⛓️" },
-      { name: "RAG", icon: "🔍" },
-      { name: "Vector DB", icon: "💾" },
+      { name: "OpenAI", icon: <SiOpenai /> },
+      { name: "LangChain", icon: <FaLink /> },
+      { name: "RAG", icon: <FaSearch /> },
+      { name: "Vector DB", icon: <FaHdd /> },
     ],
     level: "Beginner to Advanced",
     popular: false,
@@ -75,10 +97,10 @@ const programsData = [
     description:
       "Master financial modeling, valuation, M&A, and deal structuring for top finance roles.",
     tools: [
-      { name: "Excel", icon: "🟢" },
-      { name: "Power BI", icon: "📉" },
-      { name: "SQL", icon: "📊" },
-      { name: "Python", icon: "🐍" },
+      { name: "Excel", icon: <FiSettings /> },
+      { name: "Power BI", icon: <FaChartBar /> },
+      { name: "SQL", icon: <FaDatabase /> },
+      { name: "Python", icon: <FaPython /> },
     ],
     level: "Beginner to Advanced",
     popular: false,
@@ -114,6 +136,7 @@ export default function ProgramsSection() {
               <div
                 key={index}
                 onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setActiveIndex(index)}
                 style={{
                   ...styles.menuItem,
                   ...(activeIndex === index
@@ -134,9 +157,14 @@ export default function ProgramsSection() {
           </div>
 
           {/* RIGHT CONTENT AREA */}
-          <div style={styles.contentArea}>
+          <div key={activeIndex} style={styles.contentArea}>
             {/* Top Section with Tagline and Badge */}
-            <div style={styles.topSection}>
+            <div style={{
+              ...styles.topSection,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.1s forwards"
+            }}>
               <div style={styles.taglineContainer}>
                 <Zap className="w-5 h-5" style={{ color: "#0052CC" }} />
                 <p style={styles.tagline}>{activeProgram.tagline}</p>
@@ -150,28 +178,56 @@ export default function ProgramsSection() {
             </div>
 
             {/* Main Heading */}
-            <h3 style={styles.contentHeading}>{activeProgram.heading}</h3>
+            <h3 style={{
+              ...styles.contentHeading,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.2s forwards"
+            }}>{activeProgram.heading}</h3>
 
             {/* Badge */}
-            <div style={styles.badge}>
+            <div style={{
+              ...styles.badge,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.3s forwards"
+            }}>
               <Zap className="w-4 h-4" style={{ color: "white" }} />
               {activeProgram.badge}
             </div>
 
             {/* Description */}
-            <p style={styles.description}>{activeProgram.description}</p>
+            <p style={{
+              ...styles.description,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.4s forwards"
+            }}>{activeProgram.description}</p>
 
             {/* Tools Tags */}
-            <div style={styles.toolsContainer}>
+            <div style={{
+              ...styles.toolsContainer,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.5s forwards"
+            }}>
               {activeProgram.tools.map((tool, i) => (
                 <span key={i} style={styles.toolTag}>
-                  {tool.icon} {tool.name}
+                  <span style={{ marginRight: '6px', display: 'inline-flex', alignItems: 'center' }}>
+                    {tool.icon}
+                  </span>
+                  {tool.name}
                 </span>
               ))}
             </div>
 
             {/* Level and Button */}
-            <div style={styles.bottomSection}>
+            <div style={{
+              ...styles.bottomSection,
+              opacity: 0,
+              transform: "translateX(20px)",
+              animation: "slideInContent 0.4s ease-out 0.6s forwards"
+            }}>
               <p style={styles.levelText}>{activeProgram.level}</p>
               <button style={styles.button}>
                 Discover Program
@@ -181,6 +237,19 @@ export default function ProgramsSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes slideInContent {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
@@ -227,6 +296,7 @@ const styles = {
     fontWeight: "bold",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   mainHeading: {
@@ -234,6 +304,7 @@ const styles = {
     fontWeight: "900",
     color: "#0A0E27",
     lineHeight: "1.2",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   accentText: {
@@ -267,6 +338,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     borderLeft: "4px solid transparent",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   menuItemActive: {
@@ -285,6 +357,7 @@ const styles = {
     flex: 1,
     padding: "48px",
     backgroundImage: "linear-gradient(135deg, #e8eef8 0%, #f0f4f8 100%)",
+    transition: "all 0.3s ease-in-out",
   },
 
   topSection: {
@@ -304,6 +377,8 @@ const styles = {
     fontSize: "14px",
     color: "#0052CC",
     fontWeight: "500",
+    transition: "all 0.3s ease-in-out",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   popularBadge: {
@@ -330,6 +405,7 @@ const styles = {
     fontSize: "12px",
     fontWeight: "600",
     color: "#0052CC",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   contentHeading: {
@@ -337,6 +413,8 @@ const styles = {
     fontWeight: "900",
     color: "#0A0E27",
     marginBottom: "20px",
+    transition: "all 0.3s ease-in-out",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   badge: {
@@ -354,6 +432,8 @@ const styles = {
     fontWeight: "600",
     marginBottom: "24px",
     boxShadow: "0 10px 15px -3px rgba(0, 82, 204, 0.2)",
+    transition: "all 0.3s ease-in-out",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   description: {
@@ -362,6 +442,8 @@ const styles = {
     fontSize: "16px",
     lineHeight: "1.7",
     marginBottom: "32px",
+    transition: "all 0.3s ease-in-out",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   toolsContainer: {
@@ -369,6 +451,7 @@ const styles = {
     flexWrap: "wrap",
     gap: "10px",
     marginBottom: "40px",
+    transition: "all 0.3s ease-in-out",
   },
 
   toolTag: {
@@ -385,6 +468,7 @@ const styles = {
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
     cursor: "pointer",
     transition: "all 0.3s",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   bottomSection: {
@@ -397,6 +481,7 @@ const styles = {
     color: "#7A8494",
     fontSize: "13px",
     fontWeight: "500",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   button: {
@@ -416,5 +501,6 @@ const styles = {
     cursor: "pointer",
     transition: "all 0.3s",
     boxShadow: "0 2px 8px rgba(0, 82, 204, 0.3)",
+    fontFamily: "'DM Sans', sans-serif",
   },
 };

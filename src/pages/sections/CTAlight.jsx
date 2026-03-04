@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-const companies = [
-  { name: "Google", color: "#4285F4" },
-  { name: "Flipkart", color: "#0052CC" },
-  { name: "Microsoft", color: "#00A4EF" },
-  { name: "Accenture", color: "#E91E8C" },
-  { name: "Infosys", color: "#0052CC" },
-  { name: "Google", color: "#4285F4" },
-  { name: "Flipkart", color: "#0052CC" },
-  { name: "Microsoft", color: "#00A4EF" },
-];
+// const companies = [
+//   { name: "Google", color: "#4285F4" },
+//   { name: "Flipkart", color: "#0052CC" },
+//   { name: "Microsoft", color: "#00A4EF" },
+//   { name: "Accenture", color: "#E91E8C" },
+//   { name: "Infosys", color: "#0052CC" },
+//   { name: "Google", color: "#4285F4" },
+//   { name: "Flipkart", color: "#0052CC" },
+//   { name: "Microsoft", color: "#00A4EF" },
+// ];
 
 export default function CTASection() {
   const [formData, setFormData] = useState({
@@ -44,20 +44,6 @@ export default function CTASection() {
   return (
     <section style={styles.section}>
       <style>{`
-        @keyframes scrollCompanies {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .companies-scroll-container {
-          animation: scrollCompanies 15s linear infinite;
-          will-change: transform;
-        }
-
         input:focus,
         select:focus {
           border-color: #0052CC !important;
@@ -72,32 +58,16 @@ export default function CTASection() {
       `}</style>
 
       <div style={styles.container}>
-        {/* Left Side - Content - Vertically Centered */}
+        {/* Left Side - Content */}
         <div style={styles.leftContent}>
           <h2 style={styles.heading}>
-            Join 12,000+ professionals who{" "}
-            <span style={styles.accentText}>transformed their careers</span> and
-            landed roles at{" "}
-            <span style={styles.accentText}>world-class companies</span>.
+            Transform Your Career with{" "}
+            <span style={styles.accentText}>Industry-Leading Programs</span>
           </h2>
-
-          {/* Animated Company Logos */}
-          <div style={styles.companiesWrapper}>
-            <div className="companies-scroll-container" style={styles.companiesContainer}>
-              {companies.map((company, idx) => (
-                <div key={idx} style={styles.companyBadge}>
-                  <span style={{ color: company.color, fontWeight: "700", fontSize: "13px" }}>
-                    {company.name}
-                  </span>
-                  <div style={styles.dot}></div>
-                </div>
-              ))}
-            </div>
-
-            {/* Gradient Overlays */}
-            <div style={styles.gradientLeft}></div>
-            <div style={styles.gradientRight}></div>
-          </div>
+          
+          <p style={styles.subheading}>
+            Join thousands of professionals who've successfully transitioned into high-paying roles at top companies through our comprehensive, hands-on training programs.
+          </p>
         </div>
 
         {/* Right Side - Form */}
@@ -193,8 +163,8 @@ export default function CTASection() {
 
 const styles = {
   section: {
-    paddingTop: "60px",
-    paddingBottom: "60px",
+    paddingTop: "110px",
+    paddingBottom: "110px",
     backgroundColor: "#f0f4f8",
     overflow: "hidden",
   },
@@ -206,97 +176,124 @@ const styles = {
     paddingLeft: "40px",
     paddingRight: "40px",
     display: "grid",
-    gridTemplateColumns: "1.4fr 1fr",
+    gridTemplateColumns: "1fr 1fr",
     gap: "50px",
     alignItems: "center",
     minHeight: "500px",
   },
 
-  // ✅ FIXED: Vertically centered left content
+  // Left content styling
   leftContent: {
     display: "flex",
     flexDirection: "column",
-    gap: "24px",
+    gap: "28px",
     justifyContent: "center",
     alignItems: "flex-start",
+    paddingRight: "20px",
+  },
+
+  badge: {
+    backgroundColor: "#EEF3FF",
+    border: "1px solid #C7D7FF",
+    borderRadius: "50px",
+    padding: "8px 16px",
+    display: "inline-flex",
+    alignItems: "center",
+  },
+
+  badgeText: {
+    fontSize: "13px",
+    fontWeight: "600",
+    color: "#0052CC",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   heading: {
-    fontSize: "42px",
+    fontSize: "48px",
     fontWeight: "900",
     color: "#0A0E27",
     marginBottom: "0",
-    lineHeight: "1.3",
-    letterSpacing: "-0.5px",
+    lineHeight: "1.2",
+    letterSpacing: "-0.8px",
+    fontFamily: "'DM Sans', sans-serif",
   },
+
+  subheading: {
+    fontSize: "18px",
+    fontWeight: "400",
+    color: "#4B5563",
+    lineHeight: "1.6",
+    marginBottom: "0",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+
+  statsContainer: {
+    display: "flex",
+    gap: "40px",
+    alignItems: "center",
+  },
+
+  statItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+
+  statNumber: {
+    fontSize: "32px",
+    fontWeight: "900",
+    color: "#0052CC",
+    lineHeight: "1",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+
+  statLabel: {
+    fontSize: "14px",
+    fontWeight: "500",
+    color: "#6B7280",
+    marginTop: "4px",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+
+  // companiesText: {
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   gap: "12px",
+  // },
+
+  // companiesLabel: {
+  //   fontSize: "14px",
+  //   fontWeight: "500",
+  //   color: "#6B7280",
+  //   fontFamily: "'DM Sans', sans-serif",
+  // },
+
+  // companiesList: {
+  //   display: "flex",
+  //   flexWrap: "wrap",
+  //   gap: "16px",
+  // },
+
+  // companyName: {
+  //   fontSize: "15px",
+  //   fontWeight: "600",
+  //   color: "#374151",
+  //   fontFamily: "'DM Sans', sans-serif",
+  // },
 
   accentText: {
     color: "#0052CC",
   },
 
-  companiesWrapper: {
-    position: "relative",
-    overflow: "hidden",
-    width: "100%",
-    height: "45px",
-    display: "flex",
-    alignItems: "center",
-  },
-
-  companiesContainer: {
-    display: "flex",
-    gap: "12px",
-    width: "fit-content",
-  },
-
-  companyBadge: {
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
-    backgroundColor: "white",
-    padding: "8px 14px",
-    borderRadius: "20px",
-    fontSize: "13px",
-    fontWeight: "600",
-    flexShrink: 0,
-    whiteSpace: "nowrap",
-    boxShadow: "0 2px 8px rgba(0, 82, 204, 0.1)",
-  },
-
-  dot: {
-    width: "6px",
-    height: "6px",
-    borderRadius: "50%",
-    backgroundColor: "#10B981",
-  },
-
-  gradientLeft: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: "80px",
-    background: "linear-gradient(to right, #f0f4f8, transparent)",
-    pointerEvents: "none",
-    zIndex: 10,
-  },
-
-  gradientRight: {
-    position: "absolute",
-    right: 0,
-    top: 0,
-    bottom: 0,
-    width: "80px",
-    background: "linear-gradient(to left, #f0f4f8, transparent)",
-    pointerEvents: "none",
-    zIndex: 10,
-  },
-
   formCard: {
     backgroundColor: "white",
     borderRadius: "18px",
-    padding: "40px 36px",
+    padding: "55px 40px",
     boxShadow: "0 10px 40px rgba(0, 82, 204, 0.15)",
+    minHeight: "520px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
 
   formHeading: {

@@ -1,27 +1,27 @@
 import { Shield, Briefcase, QrCode, Globe, CheckCircle, Linkedin } from 'lucide-react';
-import img from '../../assets/certifications-infosys.jpg';
+import img from '../../assets/certificate.png';
 
 export default function CertificationsSection() {
   const badges = [
     {
       icon: Shield,
       title: 'Verified Digital Credential',
-      color: '#1E40AF'
+      color: '#0052CC'
     },
     {
       icon: Briefcase,
       title: 'LinkedIn Ready',
-      color: '#1E40AF'
+      color: '#0052CC'
     },
     {
       icon: QrCode,
       title: 'QR Verification',
-      color: '#1E40AF'
+      color: '#0052CC'
     },
     {
       icon: Globe,
       title: 'Globally Accepted',
-      color: '#1E40AF'
+      color: '#0052CC'
     }
   ];
 
@@ -29,22 +29,22 @@ export default function CertificationsSection() {
     {
       number: '12,000+',
       label: 'CERTIFICATES ISSUED',
-      color: '#1E3A8A'
+      color: '#0052CC'
     },
     {
       number: '92%',
       label: 'CAREER GROWTH',
-      color: '#1E3A8A'
+      color: '#0052CC'
     },
     {
       number: '400+',
       label: 'HIRING PARTNERS',
-      color: '#1E3A8A'
+      color: '#0052CC'
     },
     {
       number: '25+',
       label: 'COUNTRIES',
-      color: '#9CA3AF'
+      color: '#64748B'
     }
   ];
 
@@ -150,7 +150,7 @@ const styles = {
   section: {
     paddingTop: '80px',
     paddingBottom: '80px',
-    backgroundColor: '#EDF3FF',
+    backgroundColor: '#f0f4f8',
     overflow: 'hidden',
   },
 
@@ -181,40 +181,43 @@ const styles = {
   subtitleLine: {
     width: '40px',
     height: '3px',
-    backgroundColor: '#1E40AF',
+    backgroundColor: '#0052CC',
     borderRadius: '2px',
   },
 
   subtitle: {
     fontSize: '12px',
     fontWeight: '700',
-    color: '#1E40AF',
+    color: '#0052CC',
     letterSpacing: '2px',
     textTransform: 'uppercase',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   heading: {
     fontSize: '48px',
     fontWeight: '900',
-    color: '#0F1729',
+    color: '#0A0E27',
     marginBottom: '0',
     lineHeight: '1.2',
     letterSpacing: '-0.7px',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   accentText: {
-    color: '#1E40AF',
+    color: '#0052CC',
     textDecoration: 'underline',
-    textDecorationColor: '#1E40AF',
+    textDecorationColor: '#0052CC',
     textDecorationThickness: '3px',
     textUnderlineOffset: '4px',
   },
 
   description: {
     fontSize: '16px',
-    color: '#6B7280',
+    color: '#4B5563',
     lineHeight: '1.8',
     marginBottom: '0',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   badgesContainer: {
@@ -227,26 +230,30 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
-    backgroundColor: '#EFF6FF',
-    borderRadius: '24px',
-    padding: '12px 20px',
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    padding: '14px 18px',
     transition: 'all 0.3s ease',
-    border: 'none',
+    border: '1.5px solid #E2E8F0',
+    boxShadow: '0 2px 8px rgba(0, 82, 204, 0.08)',
   },
 
   badgeText: {
     fontSize: '13px',
     fontWeight: '600',
-    color: '#1E40AF',
+    color: '#0052CC',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   statsContainer: {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
     gap: '20px',
-    backgroundColor: '#F0F4F8',
-    borderRadius: '20px',
+    backgroundColor: 'white',
+    borderRadius: '16px',
     padding: '32px 24px',
+    border: '1.5px solid #E2E8F0',
+    boxShadow: '0 4px 16px rgba(0, 82, 204, 0.08)',
   },
 
   statItem: {
@@ -261,15 +268,16 @@ const styles = {
     fontSize: '28px',
     fontWeight: '900',
     marginBottom: '8px',
-    fontFamily: 'Georgia, serif',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   statLabel: {
     fontSize: '11px',
     fontWeight: '600',
-    color: '#9CA3AF',
+    color: '#64748B',
     letterSpacing: '0.5px',
     textTransform: 'uppercase',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   rightContent: {
@@ -324,19 +332,22 @@ const styles = {
   placeholderText: {
     fontSize: '16px',
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#64748B',
     textAlign: 'center',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   badgeTitle: {
     fontSize: '13px',
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#0A0E27',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   badgeSubtitle: {
     fontSize: '11px',
-    color: '#6B7280',
+    color: '#64748B',
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   bottomLeftBadge: {

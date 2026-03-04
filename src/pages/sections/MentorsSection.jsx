@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Clock, Briefcase } from "lucide-react";
 import img1 from "../../assets/mentor1.jpg";
 import img2 from "../../assets/mentor2.jpg";
@@ -14,7 +13,6 @@ const mentorsData = [
     company: "PwC (ex-Amazon)",
     years: "3+ years",
     skills: ["Data Science", "Image Analytics", "Python", "SQL"],
-    experience: "9+ years",
     borderColor: "#14B8A6",
     image: img1,
   },
@@ -25,7 +23,6 @@ const mentorsData = [
     company: "Google",
     years: "1 year",
     skills: ["Data Analytics", "Big Data", "Product Analytics"],
-    experience: "8+ years",
     borderColor: "#A855F7",
     image: img2,
   },
@@ -35,8 +32,7 @@ const mentorsData = [
     role: "Senior Data Scientist",
     company: "RSPL Group",
     years: "5+ years",
-    skills: ["Python", "Machine Learning", "SQL", "Advanced Analytics"],
-    experience: "7+ years",
+    skills: ["Python", "Machine Learning", "SQL"],
     borderColor: "#F97316",
     image: img3,
   },
@@ -46,8 +42,7 @@ const mentorsData = [
     role: "Senior Finance BI Developer",
     company: "Autodesk",
     years: "5+ years",
-    skills: ["Power BI", "Python", "SQL", "Finance BI"],
-    experience: "6+ years",
+    skills: ["Power BI", "Python", "SQL"],
     borderColor: "#0052CC",
     image: img4,
   },
@@ -57,345 +52,188 @@ const mentorsData = [
     role: "Data Scientist",
     company: "Cognizant",
     years: "4+ years",
-    skills: ["Python", "EDI", "Machine Learning", "Analytics"],
-    experience: "8+ years",
+    skills: ["Python", "Machine Learning", "Analytics"],
     borderColor: "#60A5FA",
     image: img5,
   },
 ];
 
-const getSkillColor = (skill) => {
-  const colors = {
-    "Data Science": "#A855F7",
-    "Image Analytics": "#14B8A6",
-    Python: "#3B82F6",
-    SQL: "#0052CC",
-    "Data Analytics": "#A855F7",
-    "Big Data": "#8B5CF6",
-    "Product Analytics": "#06B6D4",
-    "Machine Learning": "#F97316",
-    "Advanced Analytics": "#F97316",
-    "Power BI": "#0052CC",
-    "Finance BI": "#0052CC",
-    EDI: "#14B8A6",
-    Analytics: "#06B6D4",
-  };
-  return colors[skill] || "#0052CC";
-};
-
 export default function MentorsSection() {
-  const [isPaused, setIsPaused] = useState(false);
-
   return (
     <section style={styles.section}>
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .mentors-scroll-container {
-          animation: scroll 30s linear infinite;
-        }
-
-        .mentors-scroll-container:hover {
-          animation-play-state: paused;
-        }
-
-        @media (max-width: 768px) {
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
-        }
-      `}</style>
-
       <div style={styles.container}>
+        
         {/* Header */}
         <div style={styles.headerSection}>
           <p style={styles.subtitle}>LEARN FROM THE BEST</p>
           <h2 style={styles.heading}>Meet Your Mentors</h2>
           <p style={styles.description}>
-            Industry veterans from top companies who don't just teach theory - they share real-world
-            playbooks from the trenches.
+            Industry veterans from top companies who share real-world
+            experience and practical insights.
           </p>
         </div>
 
-        {/* Animated Scrolling Container */}
-        <div style={styles.scrollWrapper}>
-          <div className="mentors-scroll-container" style={styles.scrollContainer}>
-            {/* First set of mentors */}
-            {mentorsData.map((mentor) => (
-              <div
-                key={`${mentor.id}-1`}
-                style={{
-                  ...styles.mentorCard,
-                  borderTopColor: mentor.borderColor,
-                }}
-              >
-                {/* ✅ FIXED: Properly display image */}
-                <img
-                  src={mentor.image}
-                  alt={mentor.name}
-                  style={{
-                    width: "100%",
-                    height: "160px",
-                    borderRadius: "12px",
-                    objectFit: "cover",
-                    objectPosition: "center",
-                    marginBottom: "16px",
-                    backgroundColor: "#e8eef8",
-                  }}
-                />
+        {/* Mentor Grid */}
+        <div className="mentor-grid" style={styles.grid}>
+          {mentorsData.slice(0,4).map((mentor) => (
+            <div
+              key={mentor.id}
+              style={{
+                ...styles.card,
+                borderTopColor: mentor.borderColor,
+              }}
+            >
+              <img
+                src={mentor.image}
+                alt={mentor.name}
+                style={styles.image}
+              />
 
-                <div style={styles.cardContent}>
-                  <h3 style={styles.mentorName}>{mentor.name}</h3>
-                  <p style={styles.mentorRole}>{mentor.role}</p>
+              <h3 style={styles.name}>{mentor.name}</h3>
+              <p style={styles.role}>{mentor.role}</p>
 
-                  <div style={styles.infoRow}>
-                    <Briefcase style={{ width: "16px", height: "16px", color: "#0052CC" }} />
-                    <span style={styles.infoText}>{mentor.company}</span>
-                  </div>
-
-                  <div style={styles.infoRow}>
-                    <Clock style={{ width: "16px", height: "16px", color: "#0052CC" }} />
-                    <span style={styles.infoText}>{mentor.years}</span>
-                  </div>
-
-                  <div style={styles.skillsContainer}>
-                    {mentor.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        style={{
-                          ...styles.skillTag,
-                          backgroundColor: getSkillColor(skill) + "20",
-                          color: getSkillColor(skill),
-                          borderColor: getSkillColor(skill),
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div style={styles.info}>
+                <Briefcase size={14} color="#0052CC"/>
+                <span>{mentor.company}</span>
               </div>
-            ))}
 
-            {/* Duplicate set for seamless loop */}
-            {mentorsData.map((mentor) => (
-              <div
-                key={`${mentor.id}-2`}
-                style={{
-                  ...styles.mentorCard,
-                  borderTopColor: mentor.borderColor,
-                }}
-              >
-                {/* ✅ FIXED: Properly display image in duplicate set */}
-                <img
-                  src={mentor.image}
-                  alt={mentor.name}
-                  style={{
-                    width: "100%",
-                    height: "160px",
-                    borderRadius: "12px",
-                    objectFit: "cover",
-                    objectPosition: "center",
-                    marginBottom: "16px",
-                    backgroundColor: "#e8eef8",
-                  }}
-                />
-
-                <div style={styles.cardContent}>
-                  <h3 style={styles.mentorName}>{mentor.name}</h3>
-                  <p style={styles.mentorRole}>{mentor.role}</p>
-
-                  <div style={styles.infoRow}>
-                    <Briefcase style={{ width: "16px", height: "16px", color: "#0052CC" }} />
-                    <span style={styles.infoText}>{mentor.company}</span>
-                  </div>
-
-                  <div style={styles.infoRow}>
-                    <Clock style={{ width: "16px", height: "16px", color: "#0052CC" }} />
-                    <span style={styles.infoText}>{mentor.years}</span>
-                  </div>
-
-                  <div style={styles.skillsContainer}>
-                    {mentor.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        style={{
-                          ...styles.skillTag,
-                          backgroundColor: getSkillColor(skill) + "20",
-                          color: getSkillColor(skill),
-                          borderColor: getSkillColor(skill),
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div style={styles.info}>
+                <Clock size={14} color="#0052CC"/>
+                <span>{mentor.years}</span>
               </div>
-            ))}
-          </div>
 
-          {/* Gradient Overlays */}
-          <div style={styles.gradientLeft}></div>
-          <div style={styles.gradientRight}></div>
+              <div style={styles.skills}>
+                {mentor.skills.map((skill,i)=>(
+                  <span key={i} style={styles.skill}>{skill}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
+
+      {/* Responsive Grid */}
+      <style>{`
+      
+      .mentor-grid{
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        gap:24px;
+      }
+
+      @media (max-width: 1024px){
+        .mentor-grid{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+
+      @media (max-width: 600px){
+        .mentor-grid{
+          grid-template-columns: 1fr;
+        }
+      }
+
+      `}</style>
+
     </section>
   );
 }
 
 const styles = {
-  section: {
-    paddingTop: "60px",
-    paddingBottom: "60px",
-    backgroundColor: "#f0f4f8",
-    overflow: "hidden",
-  },
 
-  container: {
-    maxWidth: "100%",
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingLeft: "24px",
-    paddingRight: "24px",
-    position: "relative",
-  },
+section:{
+padding:"80px 5%",
+background:"#f0f4f8"
+},
 
-  headerSection: {
-    textAlign: "center",
-    marginBottom: "50px",
-  },
+container:{
+maxWidth:"1200px",
+margin:"0 auto"
+},
 
-  subtitle: {
-    color: "#F97316",
-    fontSize: "13px",
-    fontWeight: "bold",
-    letterSpacing: "0.15em",
-    textTransform: "uppercase",
-    marginBottom: "12px",
-    display: "block",
-  },
+headerSection:{
+textAlign:"center",
+marginBottom:"50px"
+},
 
-  heading: {
-    fontSize: "44px",
-    fontWeight: "900",
-    color: "#0A0E27",
-    marginBottom: "16px",
-    lineHeight: "1.2",
-  },
+subtitle:{
+color:"#F97316",
+fontSize:"13px",
+fontWeight:"bold",
+letterSpacing:"2px",
+textTransform:"uppercase",
+marginBottom:"10px"
+},
 
-  description: {
-    fontSize: "16px",
-    color: "#6B7280",
-    maxWidth: "600px",
-    margin: "0 auto",
-    lineHeight: "1.6",
-  },
+heading:{
+fontSize:"40px",
+fontWeight:"900",
+color:"#0A0E27",
+marginBottom:"15px"
+},
 
-  scrollWrapper: {
-    position: "relative",
-    overflow: "hidden",
-    marginTop: "40px",
-  },
+description:{
+maxWidth:"600px",
+margin:"0 auto",
+color:"#6B7280",
+lineHeight:"1.6"
+},
 
-  scrollContainer: {
-    display: "flex",
-    gap: "20px",
-    width: "fit-content",
-  },
+grid:{},
 
-  mentorCard: {
-    flex: "0 0 280px",
-    backgroundColor: "white",
-    borderRadius: "16px",
-    borderTop: "4px solid",
-    padding: "20px",
-    boxShadow: "0 4px 12px rgba(0, 82, 204, 0.08)",
-    transition: "all 0.3s ease",
-    cursor: "pointer",
-  },
+card:{
+background:"#fff",
+borderRadius:"16px",
+borderTop:"4px solid",
+padding:"20px",
+boxShadow:"0 6px 16px rgba(0,0,0,0.08)",
+transition:"0.3s"
+},
 
-  cardContent: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
+image:{
+width:"100%",
+height:"170px",
+objectFit:"cover",
+borderRadius:"12px",
+marginBottom:"15px"
+},
 
-  mentorName: {
-    fontSize: "18px",
-    fontWeight: "700",
-    color: "#0A0E27",
-    margin: "0",
-  },
+name:{
+fontSize:"18px",
+fontWeight:"700",
+color:"#0A0E27"
+},
 
-  mentorRole: {
-    fontSize: "13px",
-    color: "#6B7280",
-    margin: "0 0 8px 0",
-    fontWeight: "500",
-  },
+role:{
+fontSize:"13px",
+color:"#6B7280",
+marginBottom:"10px"
+},
 
-  infoRow: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    fontSize: "12px",
-    color: "#4B5563",
-  },
+info:{
+display:"flex",
+alignItems:"center",
+gap:"8px",
+fontSize:"13px",
+marginBottom:"6px",
+color:"#374151"
+},
 
-  infoText: {
-    fontSize: "12px",
-    color: "#4B5563",
-  },
+skills:{
+display:"flex",
+flexWrap:"wrap",
+gap:"6px",
+marginTop:"12px"
+},
 
-  skillsContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "6px",
-    marginTop: "12px",
-  },
+skill:{
+fontSize:"11px",
+padding:"4px 8px",
+borderRadius:"6px",
+background:"#EEF2FF",
+color:"#0052CC",
+fontWeight:"600"
+}
 
-  skillTag: {
-    display: "inline-block",
-    padding: "4px 10px",
-    borderRadius: "6px",
-    fontSize: "11px",
-    fontWeight: "600",
-    border: "1px solid",
-    whiteSpace: "nowrap",
-  },
-
-  gradientLeft: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: "100px",
-    background: "linear-gradient(to right, #f0f4f8, transparent)",
-    pointerEvents: "none",
-    zIndex: 10,
-  },
-
-  gradientRight: {
-    position: "absolute",
-    right: 0,
-    top: 0,
-    bottom: 0,
-    width: "100px",
-    background: "linear-gradient(to left, #f0f4f8, transparent)",
-    pointerEvents: "none",
-    zIndex: 10,
-  },
 };
