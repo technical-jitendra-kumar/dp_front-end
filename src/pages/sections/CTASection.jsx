@@ -75,10 +75,9 @@ export default function CTASection() {
         {/* Left Side - Content - Vertically Centered */}
         <div style={styles.leftContent}>
           <h2 style={styles.heading}>
-            Join 12,000+ professionals who{" "}
-            <span style={styles.accentText}>transformed their careers</span> and
-            landed roles at{" "}
-            <span style={styles.accentText}>world-class companies</span>.
+            Accelerate your career with industry-leading programs.{" "}
+            <span style={styles.accentText}>Join 12,000+ professionals</span> who secured roles at{" "}
+            <span style={styles.accentText}>top-tier companies</span>.
           </h2>
 
           {/* Animated Company Logos */}
@@ -195,7 +194,7 @@ const styles = {
   section: {
     paddingTop: "60px",
     paddingBottom: "60px",
-    backgroundColor: "#0F1729",
+    backgroundColor: "#f8fafc",
     overflow: "hidden",
   },
 
@@ -224,10 +223,11 @@ const styles = {
   heading: {
     fontSize: "42px",
     fontWeight: "900",
-    color: "white",
+    color: "#0f172a",
     marginBottom: "0",
     lineHeight: "1.3",
     letterSpacing: "-0.5px",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   accentText: {
@@ -276,7 +276,7 @@ const styles = {
     top: 0,
     bottom: 0,
     width: "80px",
-    background: "linear-gradient(to right, #0F1729, transparent)",
+    background: "linear-gradient(to right, #f8fafc, transparent)",
     pointerEvents: "none",
     zIndex: 10,
   },
@@ -287,7 +287,7 @@ const styles = {
     top: 0,
     bottom: 0,
     width: "80px",
-    background: "linear-gradient(to left, #0F1729, transparent)",
+    background: "linear-gradient(to left, #f8fafc, transparent)",
     pointerEvents: "none",
     zIndex: 10,
   },
@@ -296,7 +296,8 @@ const styles = {
     backgroundColor: "white",
     borderRadius: "18px",
     padding: "40px 36px",
-    boxShadow: "0 10px 40px rgba(0, 82, 204, 0.15)",
+    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.08)",
+    border: "1px solid #e2e8f0",
   },
 
   formHeading: {
@@ -307,6 +308,7 @@ const styles = {
     textAlign: "center",
     lineHeight: "1.4",
     letterSpacing: "-0.3px",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   form: {
@@ -324,8 +326,9 @@ const styles = {
   label: {
     fontSize: "12px",
     fontWeight: "600",
-    color: "#4B5563",
+    color: "#374151",
     letterSpacing: "0.3px",
+    fontFamily: "'DM Sans', sans-serif",
   },
 
   input: {

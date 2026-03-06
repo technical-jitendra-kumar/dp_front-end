@@ -1,7 +1,12 @@
+import { useState, useEffect } from 'react';
 import { Shield, Briefcase, QrCode, Globe, CheckCircle, Linkedin } from 'lucide-react';
 import img from '../../assets/certificate.png';
+import img1 from '../../assets/certificate2.png';
+import img2 from '../../assets/certificate3.png';
 
 export default function CertificationsSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const certificates = [img, img1, img2];
   const badges = [
     {
       icon: Shield,
@@ -99,7 +104,7 @@ export default function CertificationsSection() {
           </div>
         </div>
 
-        {/* Right Side - Certificate Image with Badges */}
+        {/* Right Side - Certificates Grid */}
         <div style={styles.rightContent}>
           {/* Top Right Badge - Verified Credential */}
           <div style={styles.topRightBadge}>
@@ -110,17 +115,36 @@ export default function CertificationsSection() {
             </div>
           </div>
 
-          {/* Certificate Image Placeholder */}
-          <div style={styles.certificateImageContainer}>
-            <img
-              src={img}
-              alt="Certificates"
-              style={styles.certificateImage}
-            />
-            {/* Fallback placeholder */}
-            <div style={styles.certificatePlaceholder}>
-              <div style={styles.placeholderText}>Microsoft Certified & Linkway Certificate Images</div>
-            </div>
+          {/* Certificates Grid */}
+          <div style={styles.certificatesGrid}>
+            {certificates.map((cert, index) => (
+              <div
+                key={index}
+                style={{
+                  ...styles.certificateCard,
+                  gridColumn: index === 2 ? '1 / span 2' : 'auto',
+                  justifySelf: index === 2 ? 'center' : 'stretch',
+                  maxWidth: index === 2 ? '85%' : '100%',
+                  position: 'relative'
+                }}
+              >
+                <img
+                  src={cert}
+                  alt={`Certificate ${index + 1}`}
+                  style={styles.certificateImage}
+                />
+                {/* Industry Recognized Badge - attached to bottom certificate */}
+                {index === 2 && (
+                  <div style={styles.bottomCertificateBadge}>
+                    <div style={styles.badgeIconBlue}>🏆</div>
+                    <div>
+                      <div style={styles.badgeTitle}>Industry Recognized</div>
+                      <div style={styles.badgeSubtitle}>400+ Partners</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Bottom Left Badge - LinkedIn Ready */}
@@ -129,15 +153,6 @@ export default function CertificationsSection() {
             <div>
               <div style={styles.badgeTitle}>LinkedIn Ready</div>
               <div style={styles.badgeSubtitle}>Share Instantly</div>
-            </div>
-          </div>
-
-          {/* Bottom Right Badge - Industry Recognized */}
-          <div style={styles.bottomRightBadge}>
-            <div style={styles.badgeIconBlue}>🏆</div>
-            <div>
-              <div style={styles.badgeTitle}>Industry Recognized</div>
-              <div style={styles.badgeSubtitle}>400+ Partners</div>
             </div>
           </div>
         </div>
@@ -151,7 +166,7 @@ const styles = {
     paddingTop: '80px',
     paddingBottom: '80px',
     backgroundColor: '#f0f4f8',
-    overflow: 'hidden',
+    overflow: 'visible',
   },
 
   container: {
@@ -289,6 +304,34 @@ const styles = {
     justifyContent: 'center',
   },
 
+  certificatesGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridTemplateRows: '1fr 1fr',
+    gap: '20px',
+    width: '100%',
+    height: '100%',
+  },
+
+  certificateCard: {
+    position: 'relative',
+    borderRadius: '16px',
+    overflow: 'visible',
+    boxShadow: '0 8px 24px rgba(0, 82, 204, 0.12)',
+    transition: 'all 0.3s ease',
+    cursor: 'pointer',
+    minHeight: '200px',
+  },
+
+  certificateImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
+    objectPosition: 'center',
+    transition: 'transform 0.3s ease',
+    padding: '10px',
+  },
+
   topRightBadge: {
     position: 'absolute',
     top: '-30px',
@@ -303,38 +346,36 @@ const styles = {
     zIndex: 20,
   },
 
-  certificateImageContainer: {
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-    borderRadius: '16px',
-    overflow: 'hidden',
-  },
-
-  certificateImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    objectPosition: 'center',
-  },
-
-  certificatePlaceholder: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#E5E7EB',
+  bottomLeftBadge: {
+    position: 'absolute',
+    bottom: '-10px',
+    left: '40px',
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    padding: '12px 16px',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '16px',
-    border: '2px dashed #D1D5DB',
+    gap: '12px',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+    zIndex: 20,
   },
 
-  placeholderText: {
-    fontSize: '16px',
-    fontWeight: '600',
-    color: '#64748B',
-    textAlign: 'center',
-    fontFamily: "'DM Sans', sans-serif",
+  bottomCertificateBadge: {
+    position: 'absolute',
+    top: '-10px',
+    right: '-150px',
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    padding: '12px 16px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+    zIndex: 20,
+  },
+
+  badgeIconBlue: {
+    fontSize: '20px',
   },
 
   badgeTitle: {
@@ -348,44 +389,5 @@ const styles = {
     fontSize: '11px',
     color: '#64748B',
     fontFamily: "'DM Sans', sans-serif",
-  },
-
-  bottomLeftBadge: {
-    position: 'absolute',
-    bottom: '-30px',
-    left: '0',
-    backgroundColor: 'white',
-    borderRadius: '12px',
-    padding: '12px 16px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-    zIndex: 20,
-  },
-
-  bottomRightBadge: {
-    position: 'absolute',
-    bottom: '-30px',
-    right: '0',
-    backgroundColor: 'white',
-    borderRadius: '12px',
-    padding: '12px 16px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-    zIndex: 20,
-  },
-
-  badgeIconBlue: {
-    width: '40px',
-    height: '40px',
-    backgroundColor: '#1E40AF',
-    borderRadius: '8px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '20px',
   },
 };

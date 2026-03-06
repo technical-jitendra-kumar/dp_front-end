@@ -9,7 +9,7 @@ import WhySection from "./sections/WhySection";
 import ProcessSection from "./sections/ProcessSection";
 // import TestimonialsSection from "./sections/TestimonialsSection";
 import CTASection from "./sections/CTASection";
-import CTAlight from "./sections/CTAlight";
+// import CTAlight from "./sections/CTAlight";
 import Program from "./sections/ProgramsSection";
 import Mentor from "./sections/MentorsSection";
 import SuccessStories from "./sections/SuccessStories";
@@ -32,8 +32,8 @@ export default function HomePage() {
         <Certifications />
         <ProcessSection />
         <FAQSection />
-        <CTAlight />
-        {/* <CTASection /> */}
+        {/* <CTAlight /> */}
+        <CTASection />
       </main>
       <Footer />
       <FloatingCTA />
